@@ -1,14 +1,14 @@
-mod api;
-mod domain;
-mod infrastructure;
-
-use api::{start_service::start_service_command, stop_service::stop_service_command};
-
 // Prevents additional console window on Windows in release
 #![cfg_attr(
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
+
+mod api;
+mod domain;
+mod infrastructure;
+
+use api::{start_service::start_service_command, stop_service::stop_service_command};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
